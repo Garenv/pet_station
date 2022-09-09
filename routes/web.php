@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PetListingController;
+use App\Http\Controllers\PetController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +13,7 @@ use App\Http\Controllers\PetListingController;
 |
 */
 
-//Route::get('/pet-listing', function () {
-//    return view('pet_listing');
-//});
-
-Route::get('/', [PetListingController::class, 'getPetListing'])->name('pet_listing');
-Route::get('/pet-detail/{id}', [PetListingController::class, 'getPetDetail'])->name('pet_detail');
+Route::get('/', [PetController::class, 'getPetListing']);
+Route::get('/pet-detail/{id}', [PetController::class, 'getPetDetail'])->name('pet_detail');
 
 
