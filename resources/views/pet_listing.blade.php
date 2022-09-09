@@ -28,6 +28,10 @@
         <h1 class="petListing">Pet Listing</h1>
         <br>
 
+        <form>
+
+        </form>
+
         <div class="container">
             <table class="table">
                 <thead class="thead-light">
@@ -42,7 +46,7 @@
                 @foreach($petListing as $petList)
                     <tr>
                         <td><a href="{{ route('pet_detail', $petList->id) }}">{{ $petList->pet_name }}</a></td>
-                        <td>{{ $petList->pet_age }}</td>
+                        <td>{{ \Carbon\Carbon::parse($petList->pet_date_of_birth)->diff(\Carbon\Carbon::now())->y }}</td>
                         <td>{{ $petList->breed_name }}</td>
                     </tr>
                 @endforeach

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('breed_id', 40);
             $table->string('pet_name', 40);
             $table->string('pet_date_of_birth');
-            $table->integer('pet_age');
             $table->string('owner_name');
         });
     }

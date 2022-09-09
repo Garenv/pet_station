@@ -12,7 +12,7 @@ class PetController extends Controller
     public function getPetListing()
     {
         $petListing = DB::table('pet_breed')
-            ->select('pet_detail.id', 'pet_breed.breed_name', 'pet_detail.pet_name', 'pet_detail.pet_age')
+            ->select('pet_detail.id', 'pet_breed.breed_name', 'pet_detail.pet_name', 'pet_detail.pet_date_of_birth')
             ->join('pet_detail', 'pet_detail.breed_id', '=', 'pet_breed.breed_id')
             ->paginate(5);
 
@@ -25,7 +25,7 @@ class PetController extends Controller
      */
     public function getPetDetail($id)
     {
-        $petDetail = Pet::select('pet_breed.breed_name', 'pet_breed.breed_description', 'pet_detail.pet_name', 'pet_detail.pet_name', 'pet_detail.pet_date_of_birth', 'pet_detail.pet_age', 'pet_detail.owner_name')
+        $petDetail = Pet::select('pet_breed.breed_name', 'pet_breed.breed_description', 'pet_detail.pet_name', 'pet_detail.pet_name', 'pet_detail.pet_date_of_birth', 'pet_detail.owner_name')
             ->join('pet_breed', 'pet_detail.breed_id', '=', 'pet_breed.breed_id')
             ->findOrFail($id);
 

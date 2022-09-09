@@ -16,7 +16,6 @@ class Pet extends Model
         'breed_id',
         'pet_name',
         'pet_date_of_birth',
-        'pet_age',
         'owner_name'
     ];
 }

@@ -38,7 +38,7 @@
 
             <h2><u>Pet Name</u> - {{ $petDetail->pet_name}}</h2>
             <h2><u>Pet D.O.B</u> - {{ $petDetail->pet_date_of_birth }}</h2>
-            <h2><u>Pet Age</u> - {{ $petDetail->pet_age }}</h2>
+            <h2><u>Pet Age</u> - {{ \Carbon\Carbon::parse($petDetail->pet_date_of_birth)->diff(\Carbon\Carbon::now())->y }}</h2>
             <h2><u>Breed Name</u> - {{ $petDetail->breed_name }}</h2>
             <h2><u>Breed Description</u> - {{ $petDetail->breed_description }}</h2>
             <h2><u>Owner Name</u> - {{ $petDetail->owner_name }}</h2>
