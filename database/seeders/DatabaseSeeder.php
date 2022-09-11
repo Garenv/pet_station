@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\App;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,7 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(PetBreedSeeder::class);
-        $this->call(PetDetailSeeder::class);
+        if(env('APP_ENV') == 'staging') {
+            $this->call(PetBreedSeeder::class);
+            $this->call(PetDetailSeeder::class);
+        }
     }
 }
